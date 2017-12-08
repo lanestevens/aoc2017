@@ -2,38 +2,14 @@
 
 import sys
 
-def lt(a, b):
-    return a < b
-
-def lte(a, b):
-    return a <= b
-
-def gt(a, b):
-    return a > b
-
-def gte(a, b):
-    return a >= b
-
-def ne(a, b):
-    return a != b
-
-def eq(a, b):
-    return a == b
-
-def inc(a, b):
-    return a + b
-
-def dec(a, b):
-    return a - b
-
-operators = {'<': lt,
-             '<=': lte,
-             '>': gt,
-             '>=': gte,
-             '!=': ne,
-             '==': eq,
-             'inc': inc,
-             'dec': dec,
+operators = {'<': lambda a,b: a < b,
+             '<=': lambda a,b: a <= b,
+             '>': lambda a,b: a > b,
+             '>=': lambda a,b: a >= b,
+             '!=': lambda a,b: a != b,
+             '==': lambda a,b: a == b,
+             'inc': lambda a,b: a + b,
+             'dec': lambda a,b: a - b,
              }
 
 registers = {}
