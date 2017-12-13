@@ -2,29 +2,6 @@
 
 import sys
 
-def firewall_reset(firewall):
-    for value in firewall.values():
-        if value:
-            value['scanner'] = 0
-            value['increment'] = 1
-
-def firewall_advance_scanners(firewall):
-    for value in firewall.values():
-        if value:
-            next_scanner_value = value['scanner'] + value['increment']
-            if next_scanner_value == value['range']:
-                value['increment'] = -1
-                next_scanner_value = value['scanner'] + value['increment']
-            elif next_scanner_value == -1:
-                value['increment'] = 1
-                next_scanner_value = value['scanner'] + value['increment']
-            value['scanner'] = next_scanner_value
-            
-def packet_delay(firewall, delay):
-    while delay > 0:
-        firewall_advance_scanners(firewall)
-        delay -= 1
-
 firewall = {}
 for line in sys.stdin.readlines():
     the_key = int(line[:line.index(':')])
