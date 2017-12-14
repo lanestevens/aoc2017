@@ -1,0 +1,3 @@
+This used day 10 code to generate the input.
+
+for I in $(seq 0 127); do echo "hfdlxzhv-$I" | python ../day10/d10-2.py; done > input-1
